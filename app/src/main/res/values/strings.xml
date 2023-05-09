@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Android_Language_Practice</string>
+    <string name="app_name">Android Language Practice</string>
     <string name="entry_view_picture_desc">Entry View Picture</string>
     <string name="enter_button_label">Enter</string>
     <string name="enter_button_desc">Says Enter</string>
+    <string name="share_label">Share</string>
 </resources>
