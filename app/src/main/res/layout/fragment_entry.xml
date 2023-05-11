@@ -4,35 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EntryActivity">
+    android:contentDescription="@string/entry_view_picture_desc"
+    android:orientation="vertical"
+    tools:context=".EntryFragment">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/entryImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:contentDescription="@string/entry_view_picture_desc"
-        android:scaleX="3"
-        android:scaleY="3"
-        android:visibility="visible"
+        android:scaleX="5"
+        android:scaleY="5"
+        android:src="@android:drawable/btn_star_big_on"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:srcCompat="@android:drawable/btn_star_big_on" />
+        tools:ignore="ImageContrastCheck" />
 
     <Button
         android:id="@+id/enterButton"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:contentDescription="@string/enter_button_desc"
         android:text="@string/enter_button_label"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintTop_toBottomOf="@+id/entryImage" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

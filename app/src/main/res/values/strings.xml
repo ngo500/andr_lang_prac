@@ -4,6 +4,8 @@
     <string name="enter_button_label">Enter</string>
     <string name="enter_button_desc">Says Enter</string>
     <string name="share_label">Share</string>
+    <string name="home_message_label">Welcome! Please select a button below.</string>
+    <string name="location_button_label">Location</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
