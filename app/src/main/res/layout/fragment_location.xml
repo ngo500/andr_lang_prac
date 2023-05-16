@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LocationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="hi" />
+    <ImageView
+        android:id="@+id/questionImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/table_desc"
+        android:src="@drawable/table_image"
+        android:tag="@string/question_tag" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionImage"
+        android:text="@string/question_message"
+        android:translationX="130dp" />
+
+    <EditText
+        android:id="@+id/answerBox"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@+id/questionText"
+        android:layout_marginTop="2dp"
+        android:autofillHints="@string/hint_label"
+        android:ems="10"
+        android:hint="@string/hint_label"
+        android:inputType="text"
+        android:textColorHint="#8D6E63"
+        android:translationX="100dp" />
+
+    <Button
+        android:id="@+id/answerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerBox"
+        android:text="@string/submit_button_label"
+        android:translationX="160dp" />
+
+    <TextView
+        android:id="@+id/answerDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerButton"
+        android:layout_marginTop="0dp"
+        android:text="@string/blank_display"
+        android:translationX="170dp" />
+
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerDisplay"
+        android:layout_marginTop="0dp"
+        android:text="@string/continue_label"
+        android:translationX="150dp" />
+
+</RelativeLayout>

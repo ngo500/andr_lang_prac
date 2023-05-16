@@ -23,7 +23,11 @@
         android:id="@+id/action_location"
         android:name="com.example.android_language_practice.LocationFragment"
         android:label="fragment_location"
-        tools:layout="@layout/fragment_location" />
+        tools:layout="@layout/fragment_location" >
+        <action
+            android:id="@+id/action_locationFragment_to_homeFragment"
+            app:destination="@id/action_home" />
+    </fragment>
     <fragment
         android:id="@+id/action_entry"
         android:name="com.example.android_language_practice.EntryFragment"
