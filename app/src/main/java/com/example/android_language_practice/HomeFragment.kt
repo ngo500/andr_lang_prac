@@ -23,6 +23,9 @@ class HomeFragment : Fragment() {
         binding.locationButton.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_locationFragment)
         }
+        binding.daysButton.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_daysFragment)
+        }
         return binding.root
     }
 

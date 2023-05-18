@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.core.text.set
 import androidx.core.text.toSpannable
 import androidx.navigation.fragment.findNavController
 import com.example.android_language_practice.databinding.FragmentLocationBinding
@@ -39,7 +38,7 @@ class LocationFragment : Fragment() {
         binding.continueButton.visibility = View.INVISIBLE
         binding.finishButton.visibility = View.INVISIBLE
         binding.answerButton.setOnClickListener{
-            checkInputAnswer(it)
+            checkInputAnswer()
         }
         binding.continueButton.setOnClickListener{
             setNewQuestion()
@@ -63,142 +62,142 @@ class LocationFragment : Fragment() {
         res.updateConfiguration(configs, res.displayMetrics)
     }
 
-    private fun checkInputAnswer(view: View) {
+    private fun checkInputAnswer() {
         val inputText = binding.answerBox.text.toString()
         val currentQuestion = binding.questionImage.tag.toString()
         var correctAnswerMessage: String
         var answerStr = ""
         when(currentQuestion){
-            R.string.image_name_1.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_1)
-                if(inputText == getString(R.string.answer_1)){
+            R.string.location_image_name_1.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_1)
+                if(inputText == getString(R.string.location_answer_1)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_1)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_1))
+                    answerStr = getString(R.string.location_answer_1)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_1))
                 }
             }
-            R.string.image_name_2.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_2)
-                if(inputText == getString(R.string.answer_2)){
+            R.string.location_image_name_2.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_2)
+                if(inputText == getString(R.string.location_answer_2)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_2)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_2))
+                    answerStr = getString(R.string.location_answer_2)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_2))
                 }
             }
-            R.string.image_name_3.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_3)
-                if(inputText == getString(R.string.answer_3)){
+            R.string.location_image_name_3.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_3)
+                if(inputText == getString(R.string.location_answer_3)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_3)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_3))
+                    answerStr = getString(R.string.location_answer_3)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_3))
                 }
             }
-            R.string.image_name_4.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_4)
-                if(inputText == getString(R.string.answer_4)){
+            R.string.location_image_name_4.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_4)
+                if(inputText == getString(R.string.location_answer_4)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_4)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_4))
+                    answerStr = getString(R.string.location_answer_4)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_4))
                 }
             }
-            R.string.image_name_5.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_5)
-                if(inputText == getString(R.string.answer_5)){
+            R.string.location_image_name_5.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_5)
+                if(inputText == getString(R.string.location_answer_5)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_5)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_5))
+                    answerStr = getString(R.string.location_answer_5)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_5))
                 }
             }
-            R.string.image_name_6.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_6)
-                if(inputText == getString(R.string.answer_6)){
+            R.string.location_image_name_6.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_6)
+                if(inputText == getString(R.string.location_answer_6)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_6)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_6))
+                    answerStr = getString(R.string.location_answer_6)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_6))
                 }
             }
-            R.string.image_name_7.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_7)
-                if(inputText == getString(R.string.answer_7)){
+            R.string.location_image_name_7.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_7)
+                if(inputText == getString(R.string.location_answer_7)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_7)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_7))
+                    answerStr = getString(R.string.location_answer_7)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_7))
                 }
             }
-            R.string.image_name_8.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_8)
-                if(inputText == getString(R.string.answer_8)){
+            R.string.location_image_name_8.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_8)
+                if(inputText == getString(R.string.location_answer_8)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_8)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_8))
+                    answerStr = getString(R.string.location_answer_8)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_8))
                 }
             }
-            R.string.image_name_9.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_9)
-                if(inputText == getString(R.string.answer_9)){
+            R.string.location_image_name_9.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_9)
+                if(inputText == getString(R.string.location_answer_9)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_9)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_9))
+                    answerStr = getString(R.string.location_answer_9)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_9))
                 }
             }
-            R.string.image_name_10.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_10)
-                if(inputText == getString(R.string.answer_10)){
+            R.string.location_image_name_10.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_10)
+                if(inputText == getString(R.string.location_answer_10)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_10)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_10))
+                    answerStr = getString(R.string.location_answer_10)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_10))
                 }
             }
-            R.string.image_name_11.toString() -> {
-                binding.answerDisplay.setText(R.string.answer_11)
-                if(inputText == getString(R.string.answer_11)){
+            R.string.location_image_name_11.toString() -> {
+                binding.answerDisplay.setText(R.string.location_answer_11)
+                if(inputText == getString(R.string.location_answer_11)){
                     answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.answer_message_correct)
+                    correctAnswerMessage = getString(R.string.location_answer_message_correct)
                 }
                 else{
                     answerCorrect = 0
-                    answerStr = getString(R.string.answer_11)
-                    correctAnswerMessage = getString(R.string.answer_message_incorrect, getString(R.string.answer_11))
+                    answerStr = getString(R.string.location_answer_11)
+                    correctAnswerMessage = getString(R.string.location_answer_message_incorrect, getString(R.string.location_answer_11))
                 }
             }
             else -> {
@@ -255,22 +254,22 @@ class LocationFragment : Fragment() {
         else{ }
 
         if(wrongIndex in 0..ctr && ctr == tempStr.length){
-            //TODO: Display text at incorrect portion as red
-            Log.i("Color", "adding color")
-            //val colorComp = tempStr.toSpannable()
-            //val foreColor = ForegroundColorSpan(R.color.red)
-            //colorComp.setSpan(foreColor, wrongIndex, ctr, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            binding.incorrectAnswerDisplay.text = getString(R.string.wrong_answer_holder,
-                getString(R.string.answer_message_comparison_1),
-                tempStr,
-                getString(R.string.answer_message_comparison_2, answerStr))
+            Log.i("Color", "specific color")
+            val colorComp = tempStr.toSpannable()
+            val foreColor = ForegroundColorSpan(R.color.red)
+            colorComp.setSpan(foreColor, wrongIndex, ctr, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            binding.incorrectAnswerDisplay.text = getString(R.string.location_answer_message_comparison_1)
+            binding.incorrectAnswerDisplay.append(colorComp)
+            binding.incorrectAnswerDisplay.append(getString(R.string.location_answer_message_comparison_2, answerStr))
         }
         else{
-            Log.i("Color", "no color")
-            binding.incorrectAnswerDisplay.text = getString(R.string.wrong_answer_holder,
-                getString(R.string.answer_message_comparison_1),
-                tempStr,
-                getString(R.string.answer_message_comparison_2, answerStr))
+            Log.i("Color", "all color")
+            val colorComp = tempStr.toSpannable()
+            val foreColor = ForegroundColorSpan(R.color.red)
+            colorComp.setSpan(foreColor, 0, tempStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            binding.incorrectAnswerDisplay.text = getString(R.string.location_answer_message_comparison_1)
+            binding.incorrectAnswerDisplay.append(colorComp)
+            binding.incorrectAnswerDisplay.append(getString(R.string.location_answer_message_comparison_2, answerStr))
         }
         binding.incorrectAnswerDisplay.visibility = View.VISIBLE
     }
@@ -278,15 +277,15 @@ class LocationFragment : Fragment() {
     private fun displayLocationQuestion(){
         if(firstCheck == 0){
             binding.questionImage.setImageResource(R.drawable.question_image_1)
-            binding.questionImage.tag = R.string.image_name_1
-            binding.answerBox.setHint(R.string.hint_1)
+            binding.questionImage.tag = R.string.location_image_name_1
+            binding.answerBox.setHint(R.string.location_hint_1)
             firstCheck = 1
         }
         else{}
         when(binding.questionImage.tag.toString()){
-            "question_image_8" -> binding.questionText.setText(R.string.question_message_alt)
-            "question_image_5" -> binding.questionText.setText(R.string.question_message_alt_2)
-            else -> binding.questionText.setText(R.string.question_message)
+            "question_image_8" -> binding.questionText.setText(R.string.location_question_message_alt)
+            "question_image_5" -> binding.questionText.setText(R.string.location_question_message_alt_2)
+            else -> binding.questionText.setText(R.string.location_question_message)
         }
     }
 
@@ -297,57 +296,59 @@ class LocationFragment : Fragment() {
         binding.incorrectAnswerDisplay.visibility = View.INVISIBLE
         binding.continueButton.visibility = View.INVISIBLE
         when(binding.questionImage.tag.toString()){
-            R.string.image_name_1.toString() -> {
+            R.string.location_image_name_1.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_2)
-                binding.questionImage.tag = R.string.image_name_2
-                binding.answerBox.setHint(R.string.hint_2)
+                binding.questionImage.tag = R.string.location_image_name_2
+                binding.answerBox.setHint(R.string.location_hint_2)
             }
-            R.string.image_name_2.toString() -> {
+            R.string.location_image_name_2.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_3)
-                binding.questionImage.tag = R.string.image_name_3
-                binding.answerBox.setHint(R.string.hint_3)
+                binding.questionImage.tag = R.string.location_image_name_3
+                binding.answerBox.setHint(R.string.location_hint_3)
             }
-            R.string.image_name_3.toString() -> {
+            R.string.location_image_name_3.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_4)
-                binding.questionImage.tag = R.string.image_name_4
-                binding.answerBox.setHint(R.string.hint_4)
+                binding.questionImage.tag = R.string.location_image_name_4
+                binding.answerBox.setHint(R.string.location_hint_4)
             }
-            R.string.image_name_4.toString() -> {
+            R.string.location_image_name_4.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_5)
-                binding.questionImage.tag = R.string.image_name_5
-                binding.answerBox.setHint(R.string.hint_5)
+                binding.questionImage.tag = R.string.location_image_name_5
+                binding.answerBox.setHint(R.string.location_hint_5)
+                binding.questionText.setText(R.string.location_question_message_alt_2)
             }
-            R.string.image_name_5.toString() -> {
+            R.string.location_image_name_5.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_6)
-                binding.questionImage.tag = R.string.image_name_6
-                binding.answerBox.setHint(R.string.hint_6)
+                binding.questionImage.tag = R.string.location_image_name_6
+                binding.answerBox.setHint(R.string.location_hint_6)
+                binding.questionText.setText(R.string.location_question_message)
             }
-            R.string.image_name_6.toString() -> {
+            R.string.location_image_name_6.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_7)
-                binding.questionImage.tag = R.string.image_name_7
-                binding.answerBox.setHint(R.string.hint_7)
+                binding.questionImage.tag = R.string.location_image_name_7
+                binding.answerBox.setHint(R.string.location_hint_7)
             }
-            R.string.image_name_7.toString() -> {
+            R.string.location_image_name_7.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_8)
-                binding.questionImage.tag = R.string.image_name_8
-                binding.answerBox.setHint(R.string.hint_8)
-                binding.questionText.setText(R.string.question_message_alt)
+                binding.questionImage.tag = R.string.location_image_name_8
+                binding.answerBox.setHint(R.string.location_hint_8)
+                binding.questionText.setText(R.string.location_question_message_alt)
             }
-            R.string.image_name_8.toString() -> {
+            R.string.location_image_name_8.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_9)
-                binding.questionImage.tag = R.string.image_name_9
-                binding.answerBox.setHint(R.string.hint_9)
-                binding.questionText.setText(R.string.question_message)
+                binding.questionImage.tag = R.string.location_image_name_9
+                binding.answerBox.setHint(R.string.location_hint_9)
+                binding.questionText.setText(R.string.location_question_message)
             }
-            R.string.image_name_9.toString() -> {
+            R.string.location_image_name_9.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_10)
-                binding.questionImage.tag = R.string.image_name_10
-                binding.answerBox.setHint(R.string.hint_10)
+                binding.questionImage.tag = R.string.location_image_name_10
+                binding.answerBox.setHint(R.string.location_hint_10)
             }
-            R.string.image_name_10.toString() -> {
+            R.string.location_image_name_10.toString() -> {
                 binding.questionImage.setImageResource(R.drawable.question_image_11)
-                binding.questionImage.tag = R.string.image_name_11
-                binding.answerBox.setHint(R.string.hint_11)
+                binding.questionImage.tag = R.string.location_image_name_11
+                binding.answerBox.setHint(R.string.location_hint_11)
             }
             else -> {
                 binding.questionImage.visibility = View.INVISIBLE
@@ -356,7 +357,7 @@ class LocationFragment : Fragment() {
                 binding.answerButton.visibility = View.INVISIBLE
                 binding.continueButton.visibility = View.INVISIBLE
 
-                binding.answerDisplay.setText(getString(R.string.question_correct, correctAnswerTotal, totalQuestions))
+                binding.answerDisplay.setText(getString(R.string.location_question_correct, correctAnswerTotal, totalQuestions))
                 binding.answerDisplay.visibility = View.VISIBLE
 
                 binding.finishButton.visibility = View.VISIBLE

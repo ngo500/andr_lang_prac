@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_locationFragment"
             app:destination="@+id/action_location" />
+        <action
+            android:id="@+id/action_homeFragment_to_daysFragment"
+            app:destination="@id/action_days" />
     </fragment>
     <fragment
         android:id="@+id/action_location"
@@ -35,6 +38,15 @@
         tools:layout="@layout/fragment_entry" >
         <action
             android:id="@+id/action_entryFragment_to_homeFragment"
+            app:destination="@id/action_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/action_days"
+        android:name="com.example.android_language_practice.DaysFragment"
+        android:label="fragment_days"
+        tools:layout="@layout/fragment_days" >
+        <action
+            android:id="@+id/action_daysFragment_to_homeFragment"
             app:destination="@id/action_home" />
     </fragment>
 </navigation>
