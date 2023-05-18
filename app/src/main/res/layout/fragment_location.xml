@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,28 +12,36 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/table_desc"
         android:src="@drawable/table_image"
-        android:tag="@string/question_tag" />
+        android:tag="@string/question_tag"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/questionImage"
+        android:layout_marginTop="20dp"
         android:text="@string/question_message"
-        android:translationX="130dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/answerBox"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_below="@+id/questionText"
-        android:layout_marginTop="2dp"
         android:autofillHints="@string/hint_label"
-        android:ems="10"
+        android:ems="15"
         android:hint="@string/hint_label"
         android:inputType="text"
         android:textColorHint="#8D6E63"
-        android:translationX="100dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <Button
         android:id="@+id/answerButton"
@@ -41,24 +49,52 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/answerBox"
         android:text="@string/submit_button_label"
-        android:translationX="160dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/continueButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerBox"
+        tools:ignore="VisualLintOverlap" />
 
     <TextView
         android:id="@+id/answerDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/answerButton"
-        android:layout_marginTop="0dp"
         android:text="@string/blank_display"
-        android:translationX="170dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/continueButton" />
+
+    <TextView
+        android:id="@+id/incorrectAnswerDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerButton"
+        android:text="@string/blank_display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/continueButton" />
 
     <Button
         android:id="@+id/continueButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/answerDisplay"
-        android:layout_marginTop="0dp"
         android:text="@string/continue_label"
-        android:translationX="150dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerBox"
+        tools:ignore="VisualLintOverlap" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/finishButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerDisplay"
+        android:text="@string/finish_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerBox"
+        tools:ignore="VisualLintOverlap" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

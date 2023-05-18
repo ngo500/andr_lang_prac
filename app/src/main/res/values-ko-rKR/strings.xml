@@ -12,6 +12,7 @@
     <string name="table_desc">drawing of a table</string>
     <string name="question_message">그 책은 어디에 있어요?</string>
     <string name="question_message_alt">그 책상은 어디에 있어요?</string>
+    <string name="question_message_alt_2">그 책들은 어디에 있어요?</string>
     <string name="image_name_1">question_image_1</string>
     <string name="image_name_2">question_image_2</string>
     <string name="image_name_3">question_image_3</string>
@@ -55,4 +56,9 @@
     <string name="error_message_answer"> ERROR IN CALCULATING QUESTION ANSWER! </string>
     <string name="blank_display" />
     <string name="continue_label">Continue</string>
+    <string name="finish_label">Finish</string>
+    <string name="question_correct"> %1$d out of %2$d questions correctly answered. </string>
+    <string name="answer_message_comparison_1"> This was not the correct answer. </string>
+    <string name="answer_message_comparison_2"> The correct answer was:%n %1$s </string>
+    <string name="wrong_answer_holder"> %1$s %n %2$s %n %3$s %n </string>
 </resources>
