@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NumbersFragment">
+
+    <TextView
+        android:id="@+id/numText"
+        android:background="@drawable/box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dayQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/days_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numText" />
+
+    <EditText
+        android:id="@+id/answerBox"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="@string/hint_label"
+        android:ems="15"
+        android:hint="@string/hint_label"
+        android:inputType="text"
+        android:textColorHint="#8D6E63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayQuestion" />
+
+    <Button
+        android:id="@+id/answerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerBox"
+        android:layout_marginTop="8dp"
+        android:text="@string/submit_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerBox"
+        tools:ignore="VisualLintOverlap" />
+
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerBox"
+        android:layout_marginTop="8dp"
+        android:text="@string/continue_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerBox"
+        tools:ignore="VisualLintOverlap" />
+
+    <Button
+        android:id="@+id/finishButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerBox"
+        android:layout_marginTop="8dp"
+        android:text="@string/finish_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerBox"
+        tools:ignore="VisualLintOverlap" />
+
+    <TextView
+        android:id="@+id/answerDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerButton"
+        android:text="@string/blank_display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/continueButton" />
+
+    <Button
+        android:id="@+id/sinoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sino_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nativeButton"
+        tools:ignore="VisualLintOverlap" />
+
+    <Button
+        android:id="@+id/nativeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/native_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintOverlap" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
