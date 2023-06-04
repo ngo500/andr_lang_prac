@@ -13,10 +13,10 @@ class NumbersFragment : Fragment() {
     private var _binding: FragmentNumbersBinding? = null
     private val binding get() = _binding!!
 
-    private var firstCheck = 0
     private var answerCorrect = 0
     private var totalQuestions = 0
     private var correctAnswerTotal = 0
+    private var selectedNumberType = 0  //0 no selection/error, 1 native, 2 sino
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +24,9 @@ class NumbersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNumbersBinding.inflate(inflater, container, false)
-        displayDaysQuestion()
+        binding.numText.visibility = View.INVISIBLE
+        binding.answerBox.visibility = View.INVISIBLE
+        binding.answerButton.visibility = View.INVISIBLE
         binding.continueButton.visibility = View.INVISIBLE
         binding.finishButton.visibility = View.INVISIBLE
         binding.answerDisplay.visibility = View.INVISIBLE
@@ -41,17 +43,49 @@ class NumbersFragment : Fragment() {
             setNewQuestion()
         }
         binding.finishButton.setOnClickListener{
-            findNavController().navigate(R.id.action_daysFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_numbersFragment_to_homeFragment)
         }
         return binding.root
     }
 
     private fun startNative() {
-        TODO("Not yet implemented")
+        binding.sinoButton.visibility = View.INVISIBLE
+        binding.nativeButton.visibility = View.INVISIBLE
+        selectedNumberType = 1
+        displayNumbersQuestion()
     }
 
     private fun startSino() {
-        TODO("Not yet implemented")
+        binding.sinoButton.visibility = View.INVISIBLE
+        binding.nativeButton.visibility = View.INVISIBLE
+        selectedNumberType = 2
+        displayNumbersQuestion()
+    }
+
+    private fun displayNumbersQuestion() {
+        if(selectedNumberType == 1){     //NATIVE
+            binding.numText.text = getString(R.string.numbers_1)
+            binding.numText.tag = getString(R.string.numbers_1_native)
+            binding.answerBox.text.clear()
+            binding.answerBox.setHint(R.string.native_label)
+            binding.numText.visibility = View.VISIBLE
+            binding.answerBox.visibility = View.VISIBLE
+            binding.answerButton.visibility = View.VISIBLE
+        }
+        else if(selectedNumberType == 2){       //SINO
+            binding.numText.text = getString(R.string.numbers_1)
+            binding.numText.tag = getString(R.string.numbers_1_sino)
+            binding.answerBox.text.clear()
+            binding.answerBox.setHint(R.string.sino_label)
+            binding.numText.visibility = View.VISIBLE
+            binding.answerBox.visibility = View.VISIBLE
+            binding.answerButton.visibility = View.VISIBLE
+        }
+        else{
+            binding.answerDisplay.text = getString(R.string.error_message_buttons)
+            binding.answerDisplay.visibility = View.VISIBLE
+            binding.finishButton.visibility = View.VISIBLE
+        }
     }
 
     private fun setNewQuestion() {
@@ -60,33 +94,107 @@ class NumbersFragment : Fragment() {
         binding.answerDisplay.visibility = View.INVISIBLE
         binding.continueButton.visibility = View.INVISIBLE
         when(binding.numText.text){
-            getString(R.string.days_monday) -> {
-                binding.numText.text = getString(R.string.days_tuesday_display)
-                binding.numText.tag = getString(R.string.days_tuesday)
+            getString(R.string.numbers_1) -> {
+                if(selectedNumberType == 1){        //NATIVE
+                    binding.numText.text = getString(R.string.numbers_2)
+                    binding.numText.tag = getString(R.string.numbers_2_native)
+                }
+                else if(selectedNumberType == 2){   //SINO
+                    binding.numText.text = getString(R.string.numbers_2)
+                    binding.numText.tag = getString(R.string.numbers_2_sino)
+                }
+                else{}
             }
-            getString(R.string.days_tuesday) -> {
-                binding.numText.text = getString(R.string.days_wednesday_display)
-                binding.numText.tag = getString(R.string.days_wednesday)
+            getString(R.string.numbers_2) -> {
+                if(selectedNumberType == 1){        //NATIVE
+                    binding.numText.text = getString(R.string.numbers_3)
+                    binding.numText.tag = getString(R.string.numbers_3_native)
+                }
+                else if(selectedNumberType == 2){   //SINO
+                    binding.numText.text = getString(R.string.numbers_3)
+                    binding.numText.tag = getString(R.string.numbers_3_sino)
+                }
+                else{}
             }
-            getString(R.string.days_wednesday) -> {
-                binding.numText.text = getString(R.string.days_thursday_display)
-                binding.numText.tag = getString(R.string.days_thursday)
+            getString(R.string.numbers_3) -> {
+                if(selectedNumberType == 1){        //NATIVE
+                    binding.numText.text = getString(R.string.numbers_4)
+                    binding.numText.tag = getString(R.string.numbers_4_native)
+                }
+                else if(selectedNumberType == 2){   //SINO
+                    binding.numText.text = getString(R.string.numbers_4)
+                    binding.numText.tag = getString(R.string.numbers_4_sino)
+                }
+                else{}
             }
-            getString(R.string.days_thursday) -> {
-                binding.numText.text = getString(R.string.days_friday_display)
-                binding.numText.tag = getString(R.string.days_friday)
+            getString(R.string.numbers_4) -> {
+                if(selectedNumberType == 1){        //NATIVE
+                    binding.numText.text = getString(R.string.numbers_5)
+                    binding.numText.tag = getString(R.string.numbers_5_native)
+                }
+                else if(selectedNumberType == 2){   //SINO
+                    binding.numText.text = getString(R.string.numbers_5)
+                    binding.numText.tag = getString(R.string.numbers_5_sino)
+                }
+                else{}
             }
-            getString(R.string.days_friday) -> {
-                binding.numText.text = getString(R.string.days_saturday_display)
-                binding.numText.tag = getString(R.string.days_saturday)
+            getString(R.string.numbers_5) -> {
+                if(selectedNumberType == 1){        //NATIVE
+                    binding.numText.text = getString(R.string.numbers_6)
+                    binding.numText.tag = getString(R.string.numbers_6_native)
+                }
+                else if(selectedNumberType == 2){   //SINO
+                    binding.numText.text = getString(R.string.numbers_6)
+                    binding.numText.tag = getString(R.string.numbers_6_sino)
+                }
+                else{}
             }
-            getString(R.string.days_saturday) -> {
-                binding.numText.text = getString(R.string.days_sunday_display)
-                binding.numText.tag = getString(R.string.days_sunday)
+            getString(R.string.numbers_6) -> {
+                if(selectedNumberType == 1){        //NATIVE
+                    binding.numText.text = getString(R.string.numbers_7)
+                    binding.numText.tag = getString(R.string.numbers_7_native)
+                }
+                else if(selectedNumberType == 2){   //SINO
+                    binding.numText.text = getString(R.string.numbers_7)
+                    binding.numText.tag = getString(R.string.numbers_7_sino)
+                }
+                else{}
+            }
+            getString(R.string.numbers_7) -> {
+                if(selectedNumberType == 1){        //NATIVE
+                    binding.numText.text = getString(R.string.numbers_8)
+                    binding.numText.tag = getString(R.string.numbers_8_native)
+                }
+                else if(selectedNumberType == 2){   //SINO
+                    binding.numText.text = getString(R.string.numbers_8)
+                    binding.numText.tag = getString(R.string.numbers_8_sino)
+                }
+                else{}
+            }
+            getString(R.string.numbers_8) -> {
+                if(selectedNumberType == 1){        //NATIVE
+                    binding.numText.text = getString(R.string.numbers_9)
+                    binding.numText.tag = getString(R.string.numbers_9_native)
+                }
+                else if(selectedNumberType == 2){   //SINO
+                    binding.numText.text = getString(R.string.numbers_9)
+                    binding.numText.tag = getString(R.string.numbers_9_sino)
+                }
+                else{}
+            }
+            getString(R.string.numbers_9) -> {
+                if(selectedNumberType == 1){        //NATIVE
+                    binding.numText.text = getString(R.string.numbers_10)
+                    binding.numText.tag = getString(R.string.numbers_10_native)
+                }
+                else if(selectedNumberType == 2){   //SINO
+                    binding.numText.text = getString(R.string.numbers_10)
+                    binding.numText.tag = getString(R.string.numbers_10_sino)
+                }
+                else{}
             }
             else -> {
                 binding.numText.visibility = View.INVISIBLE
-                binding.dayQuestion.visibility = View.INVISIBLE
                 binding.answerBox.visibility = View.INVISIBLE
                 binding.answerButton.visibility = View.INVISIBLE
                 binding.continueButton.visibility = View.INVISIBLE
@@ -99,105 +207,260 @@ class NumbersFragment : Fragment() {
         }
     }
 
-    private fun displayDaysQuestion() {
-        if(firstCheck == 0){
-            binding.numText.text = getString(R.string.days_monday_display)
-            binding.numText.tag = getString(R.string.days_monday)
-            binding.answerBox.text.clear()
-            binding.answerBox.setHint(R.string.days_hint)
-            firstCheck = 1
-        }
-        else{}
-    }
-
     private fun checkInputAnswer() {
         val inputText = binding.answerBox.text.toString()
-        val currentQuestion = binding.numText.tag.toString()
+        val currentQuestion = binding.numText.text.toString()
         var correctAnswerMessage = ""
         when(currentQuestion){
-            getString(R.string.days_monday) -> {
-                binding.answerDisplay.setText(R.string.days_monday_sentence)
-                binding.numText.setText(R.string.days_monday)
-                if(inputText == getString(R.string.days_monday) || inputText == getString(R.string.days_monday_sentence)){
-                    answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.days_answer_message_correct)
+            getString(R.string.numbers_1) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_1_native)
+                    if(inputText == getString(R.string.numbers_1_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_1_native))
+                    }
                 }
-                else{
-                    answerCorrect = 0
-                    correctAnswerMessage = getString(R.string.days_answer_message_incorrect, inputText, getString(R.string.days_monday_sentence))
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_1_sino)
+                    if(inputText == getString(R.string.numbers_1_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_1_sino))
+                    }
                 }
+                else{}
             }
-            getString(R.string.days_tuesday) -> {
-                binding.answerDisplay.setText(R.string.days_tuesday_sentence)
-                binding.numText.setText(R.string.days_tuesday)
-                if(inputText == getString(R.string.days_tuesday) || inputText == getString(R.string.days_tuesday_sentence)){
-                    answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.days_answer_message_correct)
+            getString(R.string.numbers_2) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_2_native)
+                    if(inputText == getString(R.string.numbers_2_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_2_native))
+                    }
                 }
-                else{
-                    answerCorrect = 0
-                    correctAnswerMessage = getString(R.string.days_answer_message_incorrect, inputText, getString(R.string.days_tuesday_sentence))
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_2_sino)
+                    if(inputText == getString(R.string.numbers_2_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_2_sino))
+                    }
                 }
+                else{}
             }
-            getString(R.string.days_wednesday) -> {
-                binding.answerDisplay.setText(R.string.days_wednesday_sentence)
-                binding.numText.setText(R.string.days_wednesday)
-                if(inputText == getString(R.string.days_wednesday) || inputText == getString(R.string.days_wednesday_sentence)){
-                    answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.days_answer_message_correct)
+            getString(R.string.numbers_3) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_3_native)
+                    if(inputText == getString(R.string.numbers_3_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_3_native))
+                    }
                 }
-                else{
-                    answerCorrect = 0
-                    correctAnswerMessage = getString(R.string.days_answer_message_incorrect, inputText, getString(R.string.days_wednesday_sentence))
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_3_sino)
+                    if(inputText == getString(R.string.numbers_3_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_3_sino))
+                    }
                 }
+                else{}
             }
-            getString(R.string.days_thursday) -> {
-                binding.answerDisplay.setText(R.string.days_thursday_sentence)
-                binding.numText.setText(R.string.days_thursday)
-                if(inputText == getString(R.string.days_thursday) || inputText == getString(R.string.days_thursday_sentence)){
-                    answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.days_answer_message_correct)
+            getString(R.string.numbers_4) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_4_native)
+                    if(inputText == getString(R.string.numbers_4_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_4_native))
+                    }
                 }
-                else{
-                    answerCorrect = 0
-                    correctAnswerMessage = getString(R.string.days_answer_message_incorrect, inputText, getString(R.string.days_thursday_sentence))
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_4_sino)
+                    if(inputText == getString(R.string.numbers_4_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_4_sino))
+                    }
                 }
+                else{}
             }
-            getString(R.string.days_friday) -> {
-                binding.answerDisplay.setText(R.string.days_friday_sentence)
-                binding.numText.setText(R.string.days_friday)
-                if(inputText == getString(R.string.days_friday) || inputText == getString(R.string.days_friday_sentence)){
-                    answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.days_answer_message_correct)
+            getString(R.string.numbers_5) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_5_native)
+                    if(inputText == getString(R.string.numbers_5_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_5_native))
+                    }
                 }
-                else{
-                    answerCorrect = 0
-                    correctAnswerMessage = getString(R.string.days_answer_message_incorrect, inputText, getString(R.string.days_friday_sentence))
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_5_sino)
+                    if(inputText == getString(R.string.numbers_5_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_5_sino))
+                    }
                 }
+                else{}
             }
-            getString(R.string.days_saturday) -> {
-                binding.answerDisplay.setText(R.string.days_saturday_sentence)
-                binding.numText.setText(R.string.days_saturday)
-                if(inputText == getString(R.string.days_saturday) || inputText == getString(R.string.days_saturday_sentence)){
-                    answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.days_answer_message_correct)
+            getString(R.string.numbers_6) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_6_native)
+                    if(inputText == getString(R.string.numbers_6_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_6_native))
+                    }
                 }
-                else{
-                    answerCorrect = 0
-                    correctAnswerMessage = getString(R.string.days_answer_message_incorrect, inputText, getString(R.string.days_saturday_sentence))
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_6_sino)
+                    if(inputText == getString(R.string.numbers_6_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_6_sino))
+                    }
                 }
+                else{}
             }
-            getString(R.string.days_sunday) -> {
-                binding.answerDisplay.setText(R.string.days_sunday_sentence)
-                binding.numText.setText(R.string.days_sunday)
-                if(inputText == getString(R.string.days_sunday) || inputText == getString(R.string.days_sunday_sentence)){
-                    answerCorrect = 1
-                    correctAnswerMessage = getString(R.string.days_answer_message_correct)
+            getString(R.string.numbers_7) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_7_native)
+                    if(inputText == getString(R.string.numbers_7_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_7_native))
+                    }
                 }
-                else{
-                    answerCorrect = 0
-                    correctAnswerMessage = getString(R.string.days_answer_message_incorrect, inputText, getString(R.string.days_sunday_sentence))
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_7_sino)
+                    if(inputText == getString(R.string.numbers_7_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_7_sino))
+                    }
                 }
+                else{}
+            }
+            getString(R.string.numbers_8) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_8_native)
+                    if(inputText == getString(R.string.numbers_8_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_8_native))
+                    }
+                }
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_8_sino)
+                    if(inputText == getString(R.string.numbers_8_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_8_sino))
+                    }
+                }
+                else{}
+            }
+            getString(R.string.numbers_9) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_9_native)
+                    if(inputText == getString(R.string.numbers_9_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_9_native))
+                    }
+                }
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_9_sino)
+                    if(inputText == getString(R.string.numbers_9_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_9_sino))
+                    }
+                }
+                else{}
+            }
+            getString(R.string.numbers_10) -> {
+                if(selectedNumberType == 1){    //NATIVE
+                    binding.answerDisplay.setText(R.string.numbers_10_native)
+                    if(inputText == getString(R.string.numbers_10_native)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_10_native))
+                    }
+                }
+                else if(selectedNumberType == 2) {    //SINO
+                    binding.answerDisplay.setText(R.string.numbers_10_sino)
+                    if(inputText == getString(R.string.numbers_10_sino)){
+                        answerCorrect = 1
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_correct)
+                    }
+                    else{
+                        answerCorrect = 0
+                        correctAnswerMessage = getString(R.string.numbers_answer_message_incorrect, inputText, getString(R.string.numbers_10_sino))
+                    }
+                }
+                else{}
             }
             else -> {
                 Log.i("MATCH", "no match")

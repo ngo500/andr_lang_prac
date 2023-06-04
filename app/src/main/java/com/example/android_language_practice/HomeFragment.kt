@@ -1,6 +1,5 @@
 package com.example.android_language_practice
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,6 +24,9 @@ class HomeFragment : Fragment() {
         }
         binding.daysButton.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_daysFragment)
+        }
+        binding.numbersButton.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_numbersFragment)
         }
         return binding.root
     }
